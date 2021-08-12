@@ -51,8 +51,8 @@ function CategorizeBTSheet({ reff, otherCat, catTitle, allCategories, setCatTitl
                                     key={index}
                                     item={item}
                                     onPress={() => {
-                                        if (item.sub) { setOtherCat(item.sub); setCatTitle(item.title); }
-                                        else setCatSelected(item.title);
+                                        if (item.sub) { setOtherCat(item.sub); setCatTitle(item.title); close();}
+                                        else {setCatSelected(item.title); close();}
                                     }}
                                 />
                             )

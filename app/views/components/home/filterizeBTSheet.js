@@ -6,7 +6,7 @@ import { ToggleItem } from 'views/elements';
 
 import styles from 'views/styles/home';
 
-function FilterizeBTSheet({ reff, arrFilterize, setArrFilterize, filteringList, close }) {
+function FilterizeBTSheet({ reff, arrFilterize, setArrFilterize, filteringList, cancel }) {
     return (
         <RBSheet
             ref={reff}
@@ -18,7 +18,7 @@ function FilterizeBTSheet({ reff, arrFilterize, setArrFilterize, filteringList, 
             <View>
                 <View style={styles.headBT}>
                     <Text style={styles.headTextBT}>فیلترها</Text>
-                    <TouchableOpacity onPress={close}>
+                    <TouchableOpacity onPress={cancel}>
                         <Text style={[styles.headTextBT, { color: 'green', fontSize: 12 }]}>حذف همه فیلترها</Text>
                     </TouchableOpacity>
                 </View>

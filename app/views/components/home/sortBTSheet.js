@@ -23,11 +23,11 @@ function SortBTSheet({ reff, sortingList, close }) {
                         <FontAwesome5 style={styles.headTextBT} name={'times-circle'} size={23} />
                     </TouchableOpacity>
                 </View>
-                <ItemBT title='نام رستوران' onPress={() => sortingList('name')} />
-                <ItemBT title='بالاترین امتیاز' onPress={() => sortingList('rate')} />
-                <ItemBT title='نزدیک ترین' onPress={() => sortingList('')} />
-                <ItemBT title='ارزان ترین' onPress={() => sortingList('')} />
-                <ItemBT title='عملکرد کلی' onPress={() => sortingList('')} />
+                <ItemBT title='نام رستوران' onPress={() => { sortingList('name'); close() }} />
+                <ItemBT title='بالاترین امتیاز' onPress={() => { sortingList('rate'); close() }} />
+                <ItemBT title='نزدیک ترین' onPress={() => { sortingList(''); close() }} />
+                <ItemBT title='ارزان ترین' onPress={() => { sortingList(''); close() }} />
+                <ItemBT title='عملکرد کلی' onPress={() => { sortingList(''); close() }} />
             </View>
         </RBSheet>
     )

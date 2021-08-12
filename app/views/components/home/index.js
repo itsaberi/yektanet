@@ -1,6 +1,6 @@
-import React, { useRef, useState, useCallback, useEffect } from 'react';
-import { FlatList, View, Text, TouchableOpacity } from 'react-native';
+import React, { useRef, useState, useEffect } from 'react';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 
 import allData from 'data/data.js';
 import allCategories from 'data/categories';
@@ -16,7 +16,6 @@ function Home() {
     const sort = useRef();
     const filterize = useRef();
     const categorize = useRef();
-    const [, updateState] = useState();
     const [data, setData] = useState(allData);
     const [catTitle, setCatTitle] = useState();
     const [otherCat, setOtherCat] = useState(false);
@@ -24,7 +23,6 @@ function Home() {
     const [catText, setCatText] = useState('به ترتیب ...');
     const [arrDataFilterize, setArrDataFilterize] = useState([]);
     const [catSelected, setCatSelected] = useState('همه دسته ها');
-    const forceUpdate = useCallback(() => { updateState({}); sort.current.close(); categorize.current.close(); }, []);
 
     const sortingList = (sort) => {
         switch (sort) {
@@ -43,7 +41,6 @@ function Home() {
                 setCatText('بالاترین امتیاز');
                 break;
         }
-        forceUpdate();
     }
 
     const filteringList = () => {
@@ -91,9 +88,6 @@ function Home() {
                 break;
         }
         setData(newDataFiltered);
-        setArrDataFilterize(arrFilterize);
-        forceUpdate();
-        filterize.current.close();
     }
 
     useEffect(() => {
@@ -167,8 +161,8 @@ function Home() {
                 reff={filterize}
                 arrFilterize={arrFilterize}
                 setArrFilterize={setArrFilterize}
-                filteringList={() => filteringList()}
-                close={() => { filterize.current.close(); setArrFilterize([]); setArrDataFilterize([]); }}
+                filteringList={() => { setArrDataFilterize(arrFilterize); filterize.current.close(); }}
+                cancel={() => { filterize.current.close(); setArrFilterize([]); setArrDataFilterize([]); }}
             />
             <CategorizeBTSheet
                 reff={categorize}
