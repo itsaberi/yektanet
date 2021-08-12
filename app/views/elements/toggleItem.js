@@ -28,18 +28,18 @@ function ToggleItem({ value, arrFilterize, setArrFilterize }) {
 export default ToggleItem;
 
 const styles = StyleSheet.create({
-    conItemFBT:{
+    conItemFBT: {
         marginTop: 5,
-        borderBottomWidth: 0.3,
-        borderBottomColor: '#BABABA',
         paddingVertical: 15,
-        flexDirection:'row-reverse',
         alignItems: 'center',
+        marginHorizontal: 15,
+        borderBottomWidth: 0.3,
+        flexDirection: 'row-reverse',
+        borderBottomColor: '#BABABA',
         justifyContent: 'space-between',
-        marginHorizontal: 15
     },
-    textItem:{
-        color:'#686868',
+    textItem: {
+        color: '#686868',
         fontFamily: 'IRANSans(FaNum)',
     }
 })

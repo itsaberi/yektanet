@@ -2,175 +2,95 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     sort: {
+        alignItems: 'center',
         flexDirection: 'row',
-        justifyContent:'space-between',
-        alignItems:'center',
-        // fontSize: 11,
-        // marginRight: 5,
-        // color: '#6c6c6c',
-        fontFamily: 'IRANSans(FaNum)',
         marginHorizontal: 15,
-        // marginTop: 20
+        fontFamily: 'IRANSans(FaNum)',
+        justifyContent: 'space-between',
     },
-    sortEl:{
+    sortEl: {
+        alignItems: 'center',
         flexDirection: 'row',
-        // justifyContent:'space-between',
-        alignItems:'center',
     },
-    sortText:{
+    sortText: {
         marginRight: 5,
-        color:'#5e9c7f',
+        color: '#5e9c7f',
         fontFamily: 'IRANSans(FaNum)',
     },
-    boldText:{
-        fontWeight:'bold',
+    boldText: {
+        fontWeight: 'bold',
         fontFamily: 'IRANSans(FaNum)',
     },
-    headBT:{
+    headBT: {
         marginTop: 10,
         marginBottom: 5,
+        alignItems: 'center',
         marginHorizontal: 15,
         flexDirection: 'row-reverse',
-        justifyContent:'space-between',
-        alignItems:'center',
+        justifyContent: 'space-between',
     },
-    headTextBT:{
-        // fontSize: 14,
-        color:'#494949',
-        fontWeight:'bold',
+    headTextBT: {
+        color: '#494949',
+        fontWeight: 'bold',
         fontFamily: 'IRANSans(FaNum)',
     },
-    categorize:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
-        borderWidth:0.2,
-        borderRadius:5,
-        borderColor:'green',
+    categorize: {
+        marginRight: 5,
+        borderRadius: 5,
+        borderWidth: 0.2,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderColor: 'green',
         paddingHorizontal: 4,
-        marginRight: 5
-        // width:100
+        justifyContent: 'center',
     },
-    categorizeBT:{
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'flex-end',
-        borderBottomWidth:0.2,
-        borderBottomColor: '#BFBFBF',
+    categorizeBT: {
         marginRight: 10,
-        paddingVertical: 10
+        paddingVertical: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderBottomWidth: 0.2,
+        justifyContent: 'flex-end',
+        borderBottomColor: '#BFBFBF',
     },
-    catText:{
+    catText: {
+        fontSize: 12,
         marginRight: 5,
-        color:'#5e9c7f',
-        fontSize:12,
+        color: '#5e9c7f',
         fontFamily: 'IRANSans(FaNum)',
     },
-    catTextBT:{
+    catTextBT: {
         marginRight: 5,
-        color:'#5e9c7f',
-        // fontSize:12,
+        color: '#5e9c7f',
         fontFamily: 'IRANSans(FaNum)',
     },
-    contCategorize:{
+    contCategorize: {
         marginVertical: 10,
         marginHorizontal: 10,
-        flexDirection:'row-reverse',
-        alignItems:'center',
-        justifyContent:'flex-start'
-    },
-    confirmBTN:{
-        marginHorizontal:15,
-        backgroundColor:'#ff00ad',
-        borderRadius: 10,
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop: 15,
-        paddingVertical: 10
-    },
-    confirmTxt:{
-        fontWeight: 'bold',
-        color:'white',
-        fontFamily: 'IRANSans(FaNum)',
-    },
-    contFilter:{
+        alignItems: 'center',
         flexDirection: 'row-reverse',
         justifyContent: 'flex-start',
-        alignItems: 'center'
     },
-    // filter: {
-    //     flexDirection: 'row-reverse',
-    //     // marginLeft: 20
-        
-    // },
-    // filterTo: {
-    //     borderWidth:0.2,
-    //     borderRadius:5,
-    //     borderColor:'green',
-    //     paddingHorizontal: 4,
-    //     marginRight: 5
-    // }
-
-
-    // conItemFBT:{
-    //     marginTop: 5,
-    //     borderBottomWidth: 0.3,
-    //     borderBottomColor: '#BABABA',
-    //     paddingVertical: 15,
-    //     flexDirection:'row-reverse',
-    //     alignItems: 'center',
-    //     justifyContent: 'space-between',
-    //     marginHorizontal: 15
-    // },
-    // textItem:{
-    //     color:'#686868',
-    //     fontFamily: 'IRANSans(FaNum)',
-    // }
-
-
-    // image: {
-    //     width: 50,
-    //     height: 50,
-    // },
-    // itemBT: {
-    //     paddingBottom: 15,
-    //     borderBottomWidth: 0.2,
-    //     borderBottomColor: '#BFBFBF',
-    // },
-    // itemImageBT: {
-    //     paddingVertical: 5,
-    //     alignItems: 'center',
-    //     marginHorizontal: 10,
-    //     flexDirection: 'row-reverse',
-    // },
-    // contItemImageBT: {
-    //     alignItems: 'center',
-    //     borderBottomWidth: 0.2,
-    //     flexDirection: 'row-reverse',
-    //     borderBottomColor: '#BFBFBF',
-    //     justifyContent: 'space-between',
-    // },
-    // itemTxtBT: {
-    //     fontSize: 13,
-    //     marginTop: 10,
-    //     color: '#6B6B6B',
-    //     marginHorizontal: 15,
-    //     fontFamily: 'IRANSans(FaNum)',
-    // },
-    // itemImTxtBT: {
-    //     fontSize: 13,
-    //     marginRight: 5,
-    //     color: '#6B6B6B',
-    //     fontFamily: 'IRANSans(FaNum)',
-    // },
-    // itemSubBT: {
-    //     fontSize: 13,
-    //     marginRight: 5,
-    //     marginLeft: 15,
-    //     color: '#6B6B6B',
-    //     fontFamily: 'IRANSans(FaNum)',
-    // }
+    confirmBTN: {
+        marginTop: 15,
+        borderRadius: 10,
+        paddingVertical: 10,
+        marginHorizontal: 15,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#ff00ad',
+    },
+    confirmTxt: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontFamily: 'IRANSans(FaNum)',
+    },
+    contFilter: {
+        alignItems: 'center',
+        flexDirection: 'row-reverse',
+        justifyContent: 'flex-start',
+    },
 })
 
 export default styles;
