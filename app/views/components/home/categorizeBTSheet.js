@@ -31,7 +31,7 @@ function CategorizeBTSheet({ reff, otherCat, catTitle, allCategories, setCatTitl
                             <Text style={styles.catTextBT}>{`همه ${catTitle} ها`}</Text>
                             <FontAwesome5 style={styles.catTextBT} name={'th-large'} size={15} />
                         </View>
-                        {otherCat.map((item, index) => <ItemBT key={index} item={item} onPress={() => { setCatSelected(item.title); }} />)}
+                        {otherCat.map((item, index) => <ItemBT key={index} item={item} onPress={() => { setCatSelected(item.title); close(); }} />)}
                     </View>
                     :
                     <View>
@@ -41,7 +41,7 @@ function CategorizeBTSheet({ reff, otherCat, catTitle, allCategories, setCatTitl
                                 <FontAwesome5 style={styles.headTextBT} name={'times-circle'} size={23} />
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity style={styles.categorizeBT} onPress={() => { setCatSelected('همه دسته ها'); close }}>
+                        <TouchableOpacity style={styles.categorizeBT} onPress={() => { setCatSelected('همه دسته ها'); close(); }}>
                             <Text style={styles.catTextBT}>همه دسته ها</Text>
                             <FontAwesome5 style={styles.catTextBT} name={'th-large'} size={15} />
                         </TouchableOpacity>
@@ -51,8 +51,8 @@ function CategorizeBTSheet({ reff, otherCat, catTitle, allCategories, setCatTitl
                                     key={index}
                                     item={item}
                                     onPress={() => {
-                                        if (item.sub) { setOtherCat(item.sub); setCatTitle(item.title); close();}
-                                        else {setCatSelected(item.title); close();}
+                                        if (item.sub) { setOtherCat(item.sub); setCatTitle(item.title); }
+                                        else { setCatSelected(item.title); close(); }
                                     }}
                                 />
                             )
