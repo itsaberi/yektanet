@@ -1,13 +1,16 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { Card, ItemBT, ToggleItem } from '../elements';
-import RBSheet from 'react-native-raw-bottom-sheet';
 
-import allData from '../../data/data';
-import allCategories from '../../data/categories';
+import allData from 'data/data.js';
+import allCategories from 'data/categories';
 
-import styles from '../styles/home';
+import { Card } from 'views/elements';
+import SortBTSheet from './sortBTSheet';
+import FilterizeBTSheet from './filterizeBTSheet';
+import CategorizeBTSheet from './categorizeBTSheet';
+
+import styles from 'views/styles/home';
 
 function Home() {
     const sort = useRef();
@@ -159,102 +162,28 @@ function Home() {
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => <Card item={item} />}
             />
-            <RBSheet
-                ref={filterize}
-                height={420}
-                duration={10}
-                animationType="fade"
-                closeOnPressMask={false}
-                customStyles={{ container: { borderRadius: 10 } }}>
-                <View>
-                    <View style={styles.headBT}>
-                        <Text style={styles.headTextBT}>فیلترها</Text>
-                        <TouchableOpacity onPress={() => { filterize.current.close(); setArrFilterize([]); setArrDataFilterize([]); }}>
-                            <Text style={[styles.headTextBT, { color: 'green', fontSize: 12 }]}>حذف همه فیلترها</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <ToggleItem value='دارای کوپن' arrFilterize={arrFilterize} setArrFilterize={setArrFilterize} />
-                    <ToggleItem value='دارای تخفیف' arrFilterize={arrFilterize} setArrFilterize={setArrFilterize} />
-                    <ToggleItem value='اسنپ اکسپرس' arrFilterize={arrFilterize} setArrFilterize={setArrFilterize} />
-                    <ToggleItem value='ارسال رایگان' arrFilterize={arrFilterize} setArrFilterize={setArrFilterize} />
-                    <ToggleItem value='رستوران های به صرفه' arrFilterize={arrFilterize} setArrFilterize={setArrFilterize} />
-                    <TouchableOpacity style={styles.confirmBTN} onPress={() => filteringList()}>
-                        <Text style={styles.confirmTxt}>اعمال</Text>
-                    </TouchableOpacity>
-                </View>
-            </RBSheet>
-            <RBSheet
-                height={460}
-                duration={10}
-                ref={categorize}
-                animationType="fade"
-                closeOnPressMask={false}
-                customStyles={{ container: { borderRadius: 10 } }}>
-                {
-                    otherCat ?
-                        <View>
-                            <View style={styles.headBT}>
-                                <TouchableOpacity onPress={() => setOtherCat(false)}>
-                                    <Text style={styles.headTextBT}>{` <   بازگشت`}</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => categorize.current.close()}>
-                                    <FontAwesome5 style={styles.headTextBT} name={'times-circle'} size={23} />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.categorizeBT}>
-                                <Text style={styles.catTextBT}>{`همه ${catTitle} ها`}</Text>
-                                <FontAwesome5 style={styles.catTextBT} name={'th-large'} size={15} />
-                            </View>
-                            {otherCat.map((item, index) => <ItemBT key={index} item={item} onPress={() => { setCatSelected(item.title); }} />)}
-                        </View>
-                        :
-                        <View>
-                            <View style={styles.headBT}>
-                                <Text style={styles.headTextBT}>انتخاب دسته بندی</Text>
-                                <TouchableOpacity onPress={() => categorize.current.close()}>
-                                    <FontAwesome5 style={styles.headTextBT} name={'times-circle'} size={23} />
-                                </TouchableOpacity>
-                            </View>
-                            <TouchableOpacity style={styles.categorizeBT} onPress={() => { setCatSelected('همه دسته ها'); categorize.current.close() }}>
-                                <Text style={styles.catTextBT}>همه دسته ها</Text>
-                                <FontAwesome5 style={styles.catTextBT} name={'th-large'} size={15} />
-                            </TouchableOpacity>
-                            {allCategories.map((item, index) => {
-                                return (
-                                    <ItemBT
-                                        key={index}
-                                        item={item}
-                                        onPress={() => {
-                                            if (item.sub) { setOtherCat(item.sub); setCatTitle(item.title); }
-                                            else setCatSelected(item.title);
-                                        }}
-                                    />
-                                )
-                            })}
-                        </View>
-                }
-            </RBSheet>
-            <RBSheet
-                ref={sort}
-                height={320}
-                duration={10}
-                animationType="fade"
-                closeOnPressMask={false}
-                customStyles={{ container: { borderRadius: 10 } }}>
-                <View>
-                    <View style={styles.headBT}>
-                        <Text style={styles.headTextBT}>به ترتیب ...</Text>
-                        <TouchableOpacity onPress={() => sort.current.close()}>
-                            <FontAwesome5 style={styles.headTextBT} name={'times-circle'} size={23} />
-                        </TouchableOpacity>
-                    </View>
-                    <ItemBT title='نام رستوران' onPress={() => sortingList('name')} />
-                    <ItemBT title='بالاترین امتیاز' onPress={() => sortingList('rate')} />
-                    <ItemBT title='نزدیک ترین' onPress={() => sortingList('')} />
-                    <ItemBT title='ارزان ترین' onPress={() => sortingList('')} />
-                    <ItemBT title='عملکرد کلی' onPress={() => sortingList('')} />
-                </View>
-            </RBSheet>
+            <FilterizeBTSheet
+                reff={filterize}
+                arrFilterize={arrFilterize}
+                setArrFilterize={setArrFilterize}
+                filteringList={() => filteringList()}
+                close={() => { filterize.current.close(); setArrFilterize([]); setArrDataFilterize([]); }}
+            />
+            <CategorizeBTSheet
+                reff={categorize}
+                otherCat={otherCat}
+                catTitle={catTitle}
+                setCatTitle={setCatTitle}
+                setOtherCat={setOtherCat}
+                allCategories={allCategories}
+                setCatSelected={setCatSelected}
+                close={() => categorize.current.close()}
+            />
+            <SortBTSheet
+                reff={sort}
+                sortingList={sortingList}
+                close={() => sort.current.close()}
+            />
         </>
     )
 }
