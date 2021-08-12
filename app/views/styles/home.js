@@ -91,6 +91,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row-reverse',
         justifyContent: 'flex-start',
     },
+    filterCount:{
+        width: 15, 
+        height: 15, 
+        fontSize: 11,
+        color:'white',
+        marginRight: 3,
+        borderRadius: 7.5, 
+        textAlign: 'center',
+        backgroundColor: '#02BF58', 
+        fontFamily: 'IRANSans(FaNum)',
+    },
 })
 
 export default styles;

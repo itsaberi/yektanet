@@ -121,9 +121,10 @@ function Home() {
                     }
                 </View>
                 <View style={styles.filter}>
-                    <TouchableOpacity style={styles.categorize} onPress={() => filterize.current.open()}>
-                        <Text style={styles.catText}>فیلترها</Text>
-                        <FontAwesome5 style={styles.catText} name={'exchange-alt'} size={15} />
+                    <TouchableOpacity style={[styles.categorize, { backgroundColor: arrDataFilterize.length > 0 ? 'green' : null }]} onPress={() => filterize.current.open()}>
+                        {arrDataFilterize.length > 0 ? <Text style={styles.filterCount}>{arrDataFilterize.length}</Text> : null}
+                        <Text style={[styles.catText, { color: arrDataFilterize.length > 0 ? 'white' : 'green' }]}>فیلترها</Text>
+                        <FontAwesome5 style={[styles.catText, { color: arrDataFilterize.length > 0 ? 'white' : 'green' }]} name={'exchange-alt'} size={15} />
                     </TouchableOpacity>
                 </View>
                 <FlatList
